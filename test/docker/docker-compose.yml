@@ -1,0 +1,14 @@
+version: '3'
+services:
+  pytest:
+    build:
+      # mimic the required context to build the image
+      context: ../../
+      dockerfile: test/docker/Dockerfile
+    restart: no
+    working_dir: /app
+    volumes:
+      # volumes are relative to the docker-compose file
+      - ../../test:/app/test
+      - ../../BoardManager:/app/BoardManager
+    entrypoint: pytest --html=test/output/report.html --self-contained-html

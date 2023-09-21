@@ -1,7 +1,7 @@
 import operator
 from collections import namedtuple
 from enum import Enum
-from Board import Position
+from BoardManager.Board import Position
 
 Move = namedtuple("Move", ["direction", "depth", "conditions"])
 
