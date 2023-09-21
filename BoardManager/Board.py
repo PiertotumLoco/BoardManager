@@ -1,4 +1,4 @@
-from TList import TList
+from BoardManager.TListfile import TList
 from collections import namedtuple
 
 Position = namedtuple('Position', ['file', 'rank'])  # file = column, rank = row
