@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches:
+    - master
+  push:
+    branches:
+      - test*
+
+jobs:
+  pytest_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: pytest_run_step
+        run: docker-compose -f "test/docker/docker-compose.yml" up --build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pytest_upload_output_step
+          path: test/output/
+          if-no-files-found: error
+
