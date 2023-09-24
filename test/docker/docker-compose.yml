@@ -1,11 +1,11 @@
-version: '3'
+version: "3.7"
 services:
   pytest:
     build:
       # mimic the required context to build the image
       context: ../../
       dockerfile: test/docker/Dockerfile
-    restart: no
+    restart: "no"
     working_dir: /app
     volumes:
       # volumes are relative to the docker-compose file
